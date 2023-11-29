@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
 
-const moment = require('moment')
-const fs = require('fs')
+import moment from 'moment'
+import fs from 'fs'
 
 //
-function getAvailableSpots (calendar, date, duration) {
+
+export function getAvailableSpots (calendar: any, date: any, duration: any) {
   const rawdata = fs.readFileSync('./calendars/calendar.' + calendar + '.json')
-  const data = JSON.parse(rawdata)
+  const data = JSON.parse(rawdata.toString('utf-8'))
   const dateISO = moment(date, 'DD-MM-YYYY').format('YYYY-MM-DD')
   const durationBefore = data.durationBefore
   const durationAfter = data.durationAfter
@@ -17,11 +20,11 @@ function getAvailableSpots (calendar, date, duration) {
     }
   }
 
-  const realSpots = []
-  daySlots.forEach(daySlot => {
+  const realSpots: any[] = []
+  daySlots.forEach((daySlot: any) => {
     if (data.sessions && data.sessions[date]) {
       let noConflicts = true
-      data.sessions[date].forEach(sessionSlot => {
+      data.sessions[date].forEach((sessionSlot: any) => {
         const sessionStart = moment(dateISO + ' ' + sessionSlot.start).valueOf()
         const sessionEnd = moment(dateISO + ' ' + sessionSlot.end).valueOf()
         const start = moment(dateISO + ' ' + daySlot.start).valueOf()
@@ -48,7 +51,7 @@ function getAvailableSpots (calendar, date, duration) {
     }
   })
 
-  const arrSlot = []
+  const arrSlot: any[] = []
   realSpots.forEach(function (slot) {
     let init = 0
     let startHour
@@ -56,22 +59,22 @@ function getAvailableSpots (calendar, date, duration) {
     let clientStartHour
     let clientEndHour
 
-    function getMomentHour (hour) {
+    function getMomentHour (hour: any) {
       const finalHourForAdd = moment(dateISO + ' ' + hour)
       return finalHourForAdd
     }
 
-    function addMinutes (hour, minutes) {
+    function addMinutes (hour: any, minutes: any) {
       const result = moment(hour).add(minutes, 'minutes').format('HH:mm')
       return result
     }
 
-    function removeMinutes (hour, minutes) {
+    function removeMinutes (hour: any, minutes: any) {
       const result = moment(hour).subtract(minutes, 'minutes').format('HH:mm')
       return result
     }
 
-    function getOneMiniSlot (startSlot, endSlot) {
+    function getOneMiniSlot (startSlot: any, endSlot: any) {
       const startHourFirst = getMomentHour(startSlot)
 
       startHour = startHourFirst.format('HH:mm')
@@ -112,5 +115,3 @@ function getAvailableSpots (calendar, date, duration) {
   })
   return arrSlot
 }
-
-module.exports = { getAvailableSpots }

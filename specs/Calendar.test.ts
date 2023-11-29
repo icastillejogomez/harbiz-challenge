@@ -1,6 +1,6 @@
-const moment = require('moment')
-const Calendar = require('./Calendar')
-const assert = require('assert')
+import moment from 'moment'
+import * as Calendar from '../src/Calendar'
+import assert from 'assert'
 
 describe('getAvailableSpot', function () {
   it('Should get 1 available spots of calendar 1', function () {
