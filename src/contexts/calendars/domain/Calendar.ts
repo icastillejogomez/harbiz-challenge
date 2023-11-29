@@ -33,11 +33,12 @@ export class Calendar {
     return this.durationAfter.getValue()
   }
 
-  public getDateSlots (date: string) {
-    return this.slots.find((slot) => slot.date === date)?.slots ?? []
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public getDateSlots (date: string): any[] {
+    return this.slots.find((slot) => slot.getDate() === date)?.getSlots() ?? []
   }
 
   public getDateSessions (date: string) {
-    return this.sessions.find((session) => session.date === date)?.sessions ?? []
+    return this.sessions.find((session) => session.getDate() === date)?.getSessions() ?? []
   }
 }

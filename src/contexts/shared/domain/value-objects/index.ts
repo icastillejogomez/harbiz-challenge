@@ -1,3 +1,5 @@
 export * from './DateValueObject'
 export * from './IntegerValueObject'
+export * from './NonEmptyStringValueObject'
 export * from './NumberValueObject'
+export * from './StringValueObject'

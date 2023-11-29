@@ -1,5 +1,6 @@
 export * from './CalendarDurationAfter'
 export * from './CalendarDurationBefore'
 export * from './CalendarId'
-export * from './CalendarSession'
-export * from './CalendarSlot'
+
+export * from './session'
+export * from './slot'
