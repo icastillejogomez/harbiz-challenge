@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "composite": true,
-    "types": ["jest", "node"]
+    "types": ["jest", "jest-extended", "node"]
   },
-  "include": ["jest.config.ts", "specs/**/*.test.ts", "specs/**/*.spec.ts", "src/**/*.ts"]
+  "include": ["jest.config.ts", "specs/**/*.test.ts", "specs/**/*.spec.ts", "src/**/*.ts", "specs/__mocks__/**/*.json"]
 }

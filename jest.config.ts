@@ -5,6 +5,7 @@ const jestConfig: JestConfigWithTsJest = {
   transform: {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }]
   },
+  setupFilesAfterEnv: ['jest-extended/all'],
   testEnvironment: 'node',
   verbose: true
 }

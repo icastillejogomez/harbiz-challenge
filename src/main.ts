@@ -1,2 +1,3 @@
-console.log('This is not a executable program :(')
-process.exit(1)
+import * as Calendar from './Calendar'
+
+console.log(Calendar.getAvailableSpots(1, '01-01-2023', 40))

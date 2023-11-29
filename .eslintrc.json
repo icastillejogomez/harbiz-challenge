@@ -2,11 +2,12 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [
-      "@typescript-eslint"
+      "@typescript-eslint",
+      "jest",
+      "jest-extended"
     ],
-    "globals": {
-        "it": false,
-        "describe": false
+    "env": {
+      "jest/globals": true
     },
     "extends": [
       "plugin:@typescript-eslint/eslint-recommended",

@@ -8,11 +8,16 @@ import fs from 'fs'
 //
 
 export function getAvailableSpots (calendar: any, date: any, duration: any) {
+  // Load the calendar data
   const rawdata = fs.readFileSync('./calendars/calendar.' + calendar + '.json')
   const data = JSON.parse(rawdata.toString('utf-8'))
-  const dateISO = moment(date, 'DD-MM-YYYY').format('YYYY-MM-DD')
   const durationBefore = data.durationBefore
   const durationAfter = data.durationAfter
+
+  // Parse requested date
+  const dateISO = moment(date, 'DD-MM-YYYY').format('YYYY-MM-DD')
+
+  // Get requested date slots from calendar
   let daySlots = []
   for (const key in data.slots) {
     if (key === date) {
@@ -20,6 +25,7 @@ export function getAvailableSpots (calendar: any, date: any, duration: any) {
     }
   }
 
+  // Remove conflicts slots
   const realSpots: any[] = []
   daySlots.forEach((daySlot: any) => {
     if (data.sessions && data.sessions[date]) {
@@ -113,5 +119,6 @@ export function getAvailableSpots (calendar: any, date: any, duration: any) {
 
     return arrSlot
   })
+
   return arrSlot
 }
