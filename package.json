@@ -1,5 +1,5 @@
 {
-  "name": "calendar-spots",
+  "name": "harbiz-challenge",
   "version": "1.0.0",
   "description": "Harbiz challenge (JavaScript): Refactoring - Calendar spots",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "jest Calendar.test.js",
     "lint": "eslint ."
   },
-  "author": "Amine <amine@harbiz.io>",
+  "author": "Ignacio F. Castillejo Gómez <i.castillejogomez@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.3.1",
