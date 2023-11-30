@@ -1,21 +1,26 @@
-import { CalendarSessionDate } from './CalendarSessionDate'
-import { CalendarSessionRange } from './CalendarSessionRange'
+import { CalendarSessionEnd } from './CalendarSessionEnd'
+import { CalendarSessionStart } from './CalendarSessionStart'
 
 export class CalendarSession {
-  private readonly date: CalendarSessionDate
-  private readonly sessions: CalendarSessionRange[]
+  private readonly start: CalendarSessionStart
+  private readonly end: CalendarSessionEnd
 
-  constructor (date: string, sessions:{ start: string; end: string }[]) {
-    this.date = new CalendarSessionDate(date)
-    this.sessions = sessions.map(({ start, end }) => new CalendarSessionRange(start, end))
+  constructor (start: Date, end: Date) {
+    this.start = new CalendarSessionStart(start)
+    this.end = new CalendarSessionEnd(end)
+    this.ensureSessionIsValid()
   }
 
-  public getDate (): string {
-    return this.date.getValue()
+  protected ensureSessionIsValid (): void {
+    if (this.start.getValue().getTime() >= this.end.getValue().getTime()) {
+      throw new Error('Calendar session end datetime cannot be before the start datetime')
+    }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public getSessions (): any[] {
-    return this.sessions.map((range) => range.getRange())
+  public getSession () {
+    return {
+      start: this.start.getValue(),
+      end: this.end.getValue()
+    }
   }
 }

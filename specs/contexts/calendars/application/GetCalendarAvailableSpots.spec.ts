@@ -24,10 +24,10 @@ describe('Use cases', () => {
         const durationMinutes = 30
         const expectedSpots = [
           {
-            startHour: new Date('2023-04-10T16:00:00.000Z'),
-            endHour: new Date('2023-04-10T16:50:00.000Z'),
-            clientStartHour: new Date('2023-04-10T16:10:00.000Z'),
-            clientEndHour: new Date('2023-04-10T16:30:00.000Z')
+            startHour: '2023-04-10T16:00:00.000Z',
+            endHour: '2023-04-10T16:50:00.000Z',
+            clientStartHour: '2023-04-10T16:10:00.000Z',
+            clientEndHour: '2023-04-10T16:40:00.000Z'
           }
         ]
 
@@ -43,10 +43,10 @@ describe('Use cases', () => {
         const durationMinutes = 25
         const expectedSpots = [
           {
-            startHour: new Date('2023-04-13T18:00:00.000Z'),
-            endHour: new Date('2023-04-13T18:25:00.000Z'),
-            clientStartHour: new Date('2023-04-13T18:00:00.000Z'),
-            clientEndHour: new Date('2023-04-13T18:25:00.000Z')
+            startHour: '2023-04-13T18:00:00.000Z',
+            endHour: '2023-04-13T18:25:00.000Z',
+            clientStartHour: '2023-04-13T18:00:00.000Z',
+            clientEndHour: '2023-04-13T18:25:00.000Z'
           }
         ]
 

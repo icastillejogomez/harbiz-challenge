@@ -1,6 +1,6 @@
 export type CalendarSpot = {
-  startHour: Date
-  endHour: Date
-  clientStartHour: Date,
-  clientEndHour: Date,
+  startHour: string
+  endHour: string
+  clientStartHour: string,
+  clientEndHour: string,
 }
