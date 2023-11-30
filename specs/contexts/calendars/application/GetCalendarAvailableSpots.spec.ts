@@ -67,7 +67,7 @@ describe('Use cases', () => {
     })
 
     describe('using calendar 4 mock...', () => {
-      it('Should get 0 available spots requesting 40 minutes on 01-01-2023', async () => {
+      it('Should get 6 available spots requesting 40 minutes on 01-01-2023', async () => {
         const date = '01-01-2023'
         const durationMinutes = 40
         const expectedSpots = [
